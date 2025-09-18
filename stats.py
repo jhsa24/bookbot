@@ -19,3 +19,19 @@ def get_chars(string):
         else: char_dict[char.lower()] = 1
 
     return char_dict
+
+def sort_on(items):
+    return items["num"]
+
+def sort_dict(dict):
+    list_of_dicts = []
+    for char in dict:
+        sub_dict = {}
+        sub_dict["char"] = char
+        sub_dict["num"] = dict[char]
+        #print(sub_dict)
+        list_of_dicts.append(sub_dict)
+
+    list_of_dicts.sort(reverse=True, key=sort_on)
+
+    return list_of_dicts
