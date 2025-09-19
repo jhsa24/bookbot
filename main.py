@@ -3,6 +3,7 @@
 # Bookbot
 
 from stats import get_words, get_chars, sort_dict
+import sys
 
 def get_book_text(filepath):
     #opens a file from its filepath,
@@ -13,7 +14,11 @@ def get_book_text(filepath):
 
 
 def main():
-    filepath = "books/frankenstein.txt"
+    if len(sys.argv) != 2:
+        print("Usage: python3 main.py <path_to_book>|")
+        sys.exit(1)
+
+    filepath = sys.argv[1]
     string  = get_book_text(filepath)
     num_words = get_words(string)
 
